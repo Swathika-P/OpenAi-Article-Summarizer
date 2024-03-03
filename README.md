@@ -1,8 +1,3 @@
-# React + Vite
+# OpenAi-Article-Summarizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Home Page](https://github.com/Swathika-P/OpenAi-Article-Summarizer/assets/105368712/04ca2dfe-1e8d-4f23-807c-ccc63a35eefd)
