@@ -15,7 +15,7 @@
 
 👉 **Article Summarization**: Users can input the URL of a lengthy article, and the web app utilizes AI to provide a concise summary of the article content.
 
-👉 **History Saving with Local Storage**: Save summaries locally to easily revisit and manage your reading history..
+👉 **History Saving with Local Storage**: Save summaries locally to easily revisit and manage your reading history.
 
 👉 **Copy to Clipboard Functionality**: Enables users to easily share or store the summarized content by copying it to their clipboard.
 
