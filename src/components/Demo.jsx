@@ -34,15 +34,19 @@ const Demo = () => {
 
     if (existingArticle) return setArticle(existingArticle);
 
+    try {
     const { data } = await getSummary({ articleUrl: article.url });
-    if (data?.summary) {
-      const newArticle = { ...article, summary: data.summary };
-      const updatedAllArticles = [newArticle, ...allArticles];
+      if (data?.summary) {
+        const newArticle = { ...article, summary: data.summary };
+        const updatedAllArticles = [newArticle, ...allArticles];
 
-      // update state and local storage
-      setArticle(newArticle);
-      setAllArticles(updatedAllArticles);
-      localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+        // update state and local storage
+        setArticle(newArticle);
+        setAllArticles(updatedAllArticles);
+        localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+      }
+    } catch (err) {
+        console.error("Error fetching summary:", err);
     }
   };
 
@@ -98,7 +102,10 @@ const Demo = () => {
               onClick={() => setArticle(item)}
               className='link_card'
             >
-              <div className='copy_btn' onClick={() => handleCopy(item.url)}>
+              <div className='copy_btn' onClick={(e) => {
+                e.stopPropagation(); // Prevent triggering the div's onClick
+                handleCopy(item.url);
+              }}>
                 <img
                   src={copied === item.url ? tick : copy}
                   alt={copied === item.url ? "tick_icon" : "copy_icon"}
@@ -119,10 +126,10 @@ const Demo = () => {
           <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
         ) : error ? (
           <p className='font-inter font-bold text-black text-center'>
-            Well, that wasn't supposed to happen...
+          Something went wrong...
             <br />
             <span className='font-satoshi font-normal text-gray-700'>
-              {error?.data?.error}
+              {error?.data?.error || "An unexpected error occurred"}
             </span>
           </p>
         ) : (
