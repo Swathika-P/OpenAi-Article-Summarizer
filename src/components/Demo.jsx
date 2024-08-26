@@ -34,7 +34,6 @@ const Demo = () => {
 
     if (existingArticle) return setArticle(existingArticle);
 
-    try {
     const { data } = await getSummary({ articleUrl: article.url });
       if (data?.summary) {
         const newArticle = { ...article, summary: data.summary };
@@ -44,9 +43,6 @@ const Demo = () => {
         setArticle(newArticle);
         setAllArticles(updatedAllArticles);
         localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
-      }
-    } catch (err) {
-        console.error("Error fetching summary:", err);
     }
   };
 
